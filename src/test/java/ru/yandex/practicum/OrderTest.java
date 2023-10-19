@@ -1,0 +1,37 @@
+package ru.yandex.practicum;
+
+import io.qameta.allure.junit4.DisplayName;
+import org.apache.http.HttpStatus;
+import org.junit.Before;
+import org.junit.Test;
+import ru.yandex.practicum.scooter.api.client.CourierApiClient;
+import ru.yandex.practicum.scooter.api.model.CreateOrderRequest;
+
+import static org.junit.Assert.assertNotNull;
+import static ru.yandex.practicum.scooter.api.helper.CourierGenerator.getOrder;
+
+public class OrderTest {
+
+    CreateOrderRequest createOrderRequest;
+    CourierApiClient courierApiClient;
+
+    @Before
+    public void setUp() {
+        courierApiClient = new CourierApiClient();
+
+        createOrderRequest = getOrder();
+    }
+
+    @Test
+    @DisplayName("Check status code of /api/v1/orders")
+    public void testCanMakeOrders1() {
+        Integer resultMakeOrder =
+                courierApiClient.makeOrder(createOrderRequest)
+                        .then()
+                        .statusCode(HttpStatus.SC_CREATED)
+                        .extract()
+                        .path("track");
+
+        assertNotNull(resultMakeOrder);
+    }
+}
