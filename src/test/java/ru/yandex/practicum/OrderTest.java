@@ -24,7 +24,7 @@ public class OrderTest {
 
     @Test
     @DisplayName("Check status code of /api/v1/orders")
-    public void testCanMakeOrders1() {
+    public void testCanMakeOrders() {
         Integer resultMakeOrder =
                 courierApiClient.makeOrder(createOrderRequest)
                         .then()
