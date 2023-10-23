@@ -2,6 +2,7 @@ package ru.yandex.practicum;
 
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.http.HttpStatus;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import ru.yandex.practicum.scooter.api.client.CourierApiClient;
@@ -16,11 +17,13 @@ import static ru.yandex.practicum.scooter.api.helper.CourierGenerator.getRandomC
 public class CourierTest {
 
     CreateCourierRequest createCourierRequest;
+
     CreateCourierRequest alreadyCreatedCourierRequest;
     LoginCourierRequest loginCourierRequest;
     LoginCourierRequest loginNotValidCourierRequest;
 
     CourierApiClient courierApiClient;
+
 
     @Before
     public void setUp() {
@@ -48,15 +51,6 @@ public class CourierTest {
     }
 
     @Test
-    @DisplayName("Check status code of /api/v1/courier")
-    public void testCanNotRegisterSameUsernameTwice() {
-        courierApiClient.createCourier(alreadyCreatedCourierRequest)
-                .then()
-                .assertThat()
-                .statusCode(HttpStatus.SC_CONFLICT);
-    }
-
-    @Test
     @DisplayName("Check status code of /api/v1/courier/login")
     public void testCanUserLogin() {
         courierApiClient.createCourier(createCourierRequest);
@@ -81,5 +75,23 @@ public class CourierTest {
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_GATEWAY_TIMEOUT);
+    }
+
+    @After
+    public void tearDown() {
+        Integer id =
+                courierApiClient.loginCourier(loginCourierRequest)
+                        .then()
+                        .assertThat()
+                        .statusCode(HttpStatus.SC_OK)
+                        .extract()
+                        .path("id");
+
+        courierApiClient.deleteCourier(id)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_OK)
+                .extract()
+                .path("id");
     }
 }

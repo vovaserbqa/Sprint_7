@@ -1,4 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: ru.yandex.practicum.OrderTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 s - in ru.yandex.practicum.OrderTest
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.609 s <<< FAILURE! - in ru.yandex.practicum.OrderTest
+testCanMakeOrders(ru.yandex.practicum.OrderTest)  Time elapsed: 0.606 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <404>.
+
+	at ru.yandex.practicum.OrderTest.testCanMakeOrders(OrderTest.java:40)
+

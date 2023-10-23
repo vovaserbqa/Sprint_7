@@ -33,5 +33,12 @@ public class OrderTest {
                         .path("track");
 
         assertNotNull(resultMakeOrder);
+
+        courierApiClient.deleteOrder(resultMakeOrder)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_OK)
+                .extract()
+                .path("id");
     }
 }

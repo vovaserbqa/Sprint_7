@@ -14,4 +14,16 @@ public class CreateCourierRequest {
 
     public CreateCourierRequest() {
     }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
 }
