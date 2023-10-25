@@ -12,6 +12,11 @@ public class CreateCourierRequest {
         this.firstName = firstName;
     }
 
+    public CreateCourierRequest(String password, String firstName) {
+        this.password = password;
+        this.firstName = firstName;
+    }
+
     public CreateCourierRequest() {
     }
 

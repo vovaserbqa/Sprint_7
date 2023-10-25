@@ -41,4 +41,10 @@ public class CourierApiClient extends BaseApiClient {
                 .when()
                 .put(BASE_URL + "/api/v1/orders/finish/" + id);
     }
+
+    public Response getOrders() {
+        return getPostSpec()
+                .when()
+                .get(BASE_URL + "/api/v1/orders");
+    }
 }

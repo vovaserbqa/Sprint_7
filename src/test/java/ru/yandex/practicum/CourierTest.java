@@ -2,7 +2,6 @@ package ru.yandex.practicum;
 
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.http.HttpStatus;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import ru.yandex.practicum.scooter.api.client.CourierApiClient;
@@ -11,14 +10,13 @@ import ru.yandex.practicum.scooter.api.model.LoginCourierRequest;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static ru.yandex.practicum.scooter.api.helper.CourierGenerator.getAlreadyCreatedCourier;
-import static ru.yandex.practicum.scooter.api.helper.CourierGenerator.getRandomCourier;
+import static ru.yandex.practicum.scooter.api.helper.CourierGenerator.*;
 
 public class CourierTest {
 
     CreateCourierRequest createCourierRequest;
-
     CreateCourierRequest alreadyCreatedCourierRequest;
+    CreateCourierRequest getOneParameterMissingCourier;
     LoginCourierRequest loginCourierRequest;
     LoginCourierRequest loginNotValidCourierRequest;
 
@@ -30,15 +28,16 @@ public class CourierTest {
         courierApiClient = new CourierApiClient();
 
         createCourierRequest = getRandomCourier();
-
         alreadyCreatedCourierRequest = getAlreadyCreatedCourier();
+        getOneParameterMissingCourier = getOneParameterMissingCourier();
+
         loginCourierRequest = new LoginCourierRequest(createCourierRequest.login, createCourierRequest.password);
         loginNotValidCourierRequest = new LoginCourierRequest(createCourierRequest.login);
     }
 
     @Test
     @DisplayName("Check status code of /api/v1/courier")
-    public void testCanRegisterAsValidUser() {
+    public void testCanRegisterAsValidCourier() {
         Boolean resultCreate =
                 courierApiClient.createCourier(createCourierRequest)
                         .then()
@@ -48,11 +47,48 @@ public class CourierTest {
                         .path("ok");
 
         assertTrue(resultCreate);
+
+        Integer id =
+                courierApiClient.loginCourier(loginCourierRequest)
+                        .then()
+                        .assertThat()
+                        .statusCode(HttpStatus.SC_OK)
+                        .extract()
+                        .path("id");
+
+        courierApiClient.deleteCourier(id)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_OK)
+                .extract()
+                .path("id");
+    }
+
+    @Test
+    @DisplayName("Check status code of /api/v1/courier")
+    public void testCanNotRegisterCourierTwice() {
+        courierApiClient.createCourier(alreadyCreatedCourierRequest)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_CONFLICT)
+                .extract()
+                .path("code");
+    }
+
+    @Test
+    @DisplayName("Check status code of /api/v1/courier")
+    public void testRegisterCourierOneParameterMissing() {
+        courierApiClient.createCourier(getOneParameterMissingCourier)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_BAD_REQUEST)
+                .extract()
+                .path("code");
     }
 
     @Test
     @DisplayName("Check status code of /api/v1/courier/login")
-    public void testCanUserLogin() {
+    public void testCanCourierLogin() {
         courierApiClient.createCourier(createCourierRequest);
 
         Integer resultLogin =
@@ -68,30 +104,12 @@ public class CourierTest {
 
     @Test
     @DisplayName("Check status code of /api/v1/courier/login")
-    public void testCanNotUserLogin() {
+    public void testCanNotCourierLogin() {
         courierApiClient.createCourier(createCourierRequest);
 
         courierApiClient.loginCourier(loginNotValidCourierRequest)
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_GATEWAY_TIMEOUT);
-    }
-
-    @After
-    public void tearDown() {
-        Integer id =
-                courierApiClient.loginCourier(loginCourierRequest)
-                        .then()
-                        .assertThat()
-                        .statusCode(HttpStatus.SC_OK)
-                        .extract()
-                        .path("id");
-
-        courierApiClient.deleteCourier(id)
-                .then()
-                .assertThat()
-                .statusCode(HttpStatus.SC_OK)
-                .extract()
-                .path("id");
     }
 }

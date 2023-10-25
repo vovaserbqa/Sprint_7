@@ -18,7 +18,7 @@ public class CreateOrderRequest {
     }
 
     public CreateOrderRequest(String firstName, String lastName, String address,
-                              List<String> color, String phone, String comment, int rentTime) {
+                              List<String> color, String phone, String comment, int rentTime, String deliveryDate, int metroStation) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -29,4 +29,6 @@ public class CreateOrderRequest {
         this.deliveryDate = deliveryDate;
         this.metroStation = metroStation;
     }
+
+
 }

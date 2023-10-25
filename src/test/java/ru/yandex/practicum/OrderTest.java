@@ -41,4 +41,27 @@ public class OrderTest {
                 .extract()
                 .path("id");
     }
+
+    @Test
+    @DisplayName("Check status code of /api/v1/orders")
+    public void testGetOrders() {
+        // let's fill the database
+        Integer resultMakeOrder =
+                courierApiClient.makeOrder(createOrderRequest)
+                        .then()
+                        .statusCode(HttpStatus.SC_CREATED)
+                        .extract()
+                        .path("track");
+
+        courierApiClient.getOrders()
+                .then()
+                .statusCode(HttpStatus.SC_OK);
+
+        courierApiClient.deleteOrder(resultMakeOrder)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_OK)
+                .extract()
+                .path("id");
+    }
 }

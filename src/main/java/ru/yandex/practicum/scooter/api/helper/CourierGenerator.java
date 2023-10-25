@@ -17,6 +17,14 @@ public class CourierGenerator {
         return new CreateCourierRequest(login, password, firstName);
     }
 
+    public static CreateCourierRequest getOneParameterMissingCourier() {
+        String password = RandomStringUtils.randomAlphabetic(10);
+        String firstName = RandomStringUtils.randomAlphabetic(10);
+
+        return new CreateCourierRequest(password, firstName);
+    }
+
+
     public static CreateCourierRequest getAlreadyCreatedCourier() {
         String login = "test123";
         String password = "test123";
@@ -33,7 +41,9 @@ public class CourierGenerator {
         String phone = "+7 800 355 35 35";
         String comment = "Saske, come back to Konoha";
         int rentTime = 5;
+        String deliveryDate = "2020-06-06";
+        int metroStation = 1;
 
-        return new CreateOrderRequest(firstName, lastName, address, color, phone, comment, rentTime);
+        return new CreateOrderRequest(firstName, lastName, address, color, phone, comment, rentTime, deliveryDate, metroStation);
     }
 }
