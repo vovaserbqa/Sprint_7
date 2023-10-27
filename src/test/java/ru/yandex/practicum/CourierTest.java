@@ -2,42 +2,20 @@ package ru.yandex.practicum;
 
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.http.HttpStatus;
-import org.junit.Before;
 import org.junit.Test;
-import ru.yandex.practicum.scooter.api.client.CourierApiClient;
-import ru.yandex.practicum.scooter.api.model.CreateCourierRequest;
-import ru.yandex.practicum.scooter.api.model.LoginCourierRequest;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static ru.yandex.practicum.scooter.api.helper.CourierGenerator.*;
+import static ru.yandex.practicum.scooter.api.helper.CourierGenerator.getRegisteringCourierWithoutFirstName;
+import static ru.yandex.practicum.scooter.api.helper.CourierGenerator.getRegisteringCourierWithoutPassword;
 
-public class CourierTest {
+public class CourierTest extends BaseCourier {
 
-    CreateCourierRequest createCourierRequest;
-    CreateCourierRequest alreadyCreatedCourierRequest;
-    CreateCourierRequest getOneParameterMissingCourier;
-    LoginCourierRequest loginCourierRequest;
-    LoginCourierRequest loginNotValidCourierRequest;
-
-    CourierApiClient courierApiClient;
-
-
-    @Before
-    public void setUp() {
-        courierApiClient = new CourierApiClient();
-
-        createCourierRequest = getRandomCourier();
-        alreadyCreatedCourierRequest = getAlreadyCreatedCourier();
-        getOneParameterMissingCourier = getOneParameterMissingCourier();
-
-        loginCourierRequest = new LoginCourierRequest(createCourierRequest.login, createCourierRequest.password);
-        loginNotValidCourierRequest = new LoginCourierRequest(createCourierRequest.login);
-    }
 
     @Test
     @DisplayName("Check status code of /api/v1/courier")
     public void testCanRegisterAsValidCourier() {
+        // testCanRegisterAsValidCourier
         Boolean resultCreate =
                 courierApiClient.createCourier(createCourierRequest)
                         .then()
@@ -59,26 +37,65 @@ public class CourierTest {
         courierApiClient.deleteCourier(id)
                 .then()
                 .assertThat()
-                .statusCode(HttpStatus.SC_OK)
-                .extract()
-                .path("id");
+                .statusCode(HttpStatus.SC_OK);
     }
 
     @Test
     @DisplayName("Check status code of /api/v1/courier")
     public void testCanNotRegisterCourierTwice() {
-        courierApiClient.createCourier(alreadyCreatedCourierRequest)
+        courierApiClient.createCourier(createCourierRequest);
+
+        Integer id =
+                courierApiClient.loginCourier(loginCourierRequest)
+                        .then()
+                        .assertThat()
+                        .statusCode(HttpStatus.SC_OK)
+                        .extract()
+                        .path("id");
+
+        // testCanNotRegisterCourierTwice
+        courierApiClient.createCourier(createCourierRequest)
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_CONFLICT)
+                .extract()
+                .path("code");
+
+        courierApiClient.deleteCourier(id)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_OK);
+    }
+
+    @Test
+    @DisplayName("Check status code of /api/v1/courier")
+    public void testRegisteringCourierWithoutLogin() {
+        // testRegisterCourierOneParameterMissing
+        courierApiClient.createCourier(registeringCourierWithoutLogin)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_BAD_REQUEST)
                 .extract()
                 .path("code");
     }
 
     @Test
     @DisplayName("Check status code of /api/v1/courier")
-    public void testRegisterCourierOneParameterMissing() {
-        courierApiClient.createCourier(getOneParameterMissingCourier)
+    public void testRegisteringCourierWithoutPassword() {
+        // testRegisteringCourierWithoutPassword
+        courierApiClient.createCourier(getRegisteringCourierWithoutPassword())
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_BAD_REQUEST)
+                .extract()
+                .path("code");
+    }
+
+    @Test
+    @DisplayName("Check status code of /api/v1/courier")
+    public void testRegisteringCourierWithoutFirstName() {
+        // testRegisteringCourierWithoutFirstName
+        courierApiClient.createCourier(getRegisteringCourierWithoutFirstName())
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_BAD_REQUEST)
@@ -91,6 +108,7 @@ public class CourierTest {
     public void testCanCourierLogin() {
         courierApiClient.createCourier(createCourierRequest);
 
+        // testCanCourierLogin
         Integer resultLogin =
                 courierApiClient.loginCourier(loginCourierRequest)
                         .then()
@@ -100,16 +118,60 @@ public class CourierTest {
                         .path("id");
 
         assertNotNull(resultLogin);
+
+        courierApiClient.deleteCourier(resultLogin)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_OK);
     }
 
     @Test
     @DisplayName("Check status code of /api/v1/courier/login")
-    public void testCanNotCourierLogin() {
+    public void testCanNotLoginWithoutPassword() {
         courierApiClient.createCourier(createCourierRequest);
 
-        courierApiClient.loginCourier(loginNotValidCourierRequest)
+        Integer id =
+                courierApiClient.loginCourier(loginCourierRequest)
+                        .then()
+                        .assertThat()
+                        .statusCode(HttpStatus.SC_OK)
+                        .extract()
+                        .path("id");
+
+        // testCanNotLoginWithoutPassword
+        courierApiClient.loginCourier(loginWithoutPassword)
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_GATEWAY_TIMEOUT);
+
+        courierApiClient.deleteCourier(id)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_OK);
+    }
+
+    @Test
+    @DisplayName("Check status code of /api/v1/courier/login")
+    public void testCanNotLoginWithoutLogin() {
+        courierApiClient.createCourier(createCourierRequest);
+
+        Integer id =
+                courierApiClient.loginCourier(loginCourierRequest)
+                        .then()
+                        .assertThat()
+                        .statusCode(HttpStatus.SC_OK)
+                        .extract()
+                        .path("id");
+
+        // testCanNotLoginWithoutLogin
+        courierApiClient.loginCourier(loginWithoutLogin)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_GATEWAY_TIMEOUT);
+
+        courierApiClient.deleteCourier(id)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_OK);
     }
 }

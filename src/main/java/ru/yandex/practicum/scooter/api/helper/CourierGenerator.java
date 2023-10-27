@@ -17,20 +17,25 @@ public class CourierGenerator {
         return new CreateCourierRequest(login, password, firstName);
     }
 
-    public static CreateCourierRequest getOneParameterMissingCourier() {
+    public static CreateCourierRequest getRegisteringCourierWithoutLogin() {
         String password = RandomStringUtils.randomAlphabetic(10);
         String firstName = RandomStringUtils.randomAlphabetic(10);
 
         return new CreateCourierRequest(password, firstName);
     }
 
+    public static CreateCourierRequest getRegisteringCourierWithoutFirstName() {
+        String password = RandomStringUtils.randomAlphabetic(10);
+        String login = RandomStringUtils.randomAlphabetic(10);
 
-    public static CreateCourierRequest getAlreadyCreatedCourier() {
-        String login = "test123";
-        String password = "test123";
-        String firstName = "test123";
+        return new CreateCourierRequest(password, login);
+    }
 
-        return new CreateCourierRequest(login, password, firstName);
+    public static CreateCourierRequest getRegisteringCourierWithoutPassword() {
+        String login = RandomStringUtils.randomAlphabetic(10);
+        String firstName = RandomStringUtils.randomAlphabetic(10);
+
+        return new CreateCourierRequest(login, firstName);
     }
 
     public static CreateOrderRequest getOrder() {

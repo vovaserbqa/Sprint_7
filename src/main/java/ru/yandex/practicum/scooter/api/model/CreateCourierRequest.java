@@ -1,10 +1,9 @@
 package ru.yandex.practicum.scooter.api.model;
 
 public class CreateCourierRequest {
-    // не могу поля сделать приватными так как тест потом не запускается
-    public String login;
-    public String password;
-    public String firstName;
+    private String login;
+    private String password;
+    private String firstName;
 
 
     public CreateCourierRequest(String login, String password, String firstName) {
@@ -20,4 +19,13 @@ public class CreateCourierRequest {
 
     public CreateCourierRequest() {
     }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
 }

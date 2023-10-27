@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="ru.yandex.practicum.OrderTest" time="17.976" tests="2" errors="0" skipped="0" failures="2">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="ru.yandex.practicum.OrderTest" time="16.476" tests="2" errors="0" skipped="0" failures="2">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.20_8\bin"/>
-    <property name="sun.java.command" value="C:\Users\SerVV\AppData\Local\Temp\surefire7296309664198560763\surefirebooter573582507255134890.jar C:\Users\SerVV\AppData\Local\Temp\surefire7296309664198560763 2023-10-25T15-28-35_239-jvmRun1 surefire3949340216497029914tmp surefire_01516520570856635144tmp"/>
+    <property name="sun.java.command" value="C:\Users\SerVV\AppData\Local\Temp\surefire680417785271598315\surefirebooter626860083784599135.jar C:\Users\SerVV\AppData\Local\Temp\surefire680417785271598315 2023-10-27T16-18-30_265-jvmRun1 surefire17408996569682151537tmp surefire_011025061708160693077tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\SerVV\Desktop\api_homework\Sprint_7\target\test-classes;C:\Users\SerVV\Desktop\api_homework\Sprint_7\target\classes;C:\Users\SerVV\.m2\repository\io\rest-assured\rest-assured\4.5.0\rest-assured-4.5.0.jar;C:\Users\SerVV\.m2\repository\org\codehaus\groovy\groovy\3.0.9\groovy-3.0.9.jar;C:\Users\SerVV\.m2\repository\org\codehaus\groovy\groovy-xml\3.0.9\groovy-xml-3.0.9.jar;C:\Users\SerVV\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\SerVV\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\SerVV\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\SerVV\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\SerVV\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\SerVV\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\SerVV\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\SerVV\.m2\repository\io\rest-assured\json-path\4.5.0\json-path-4.5.0.jar;C:\Users\SerVV\.m2\repository\org\codehaus\groovy\groovy-json\3.0.9\groovy-json-3.0.9.jar;C:\Users\SerVV\.m2\repository\io\rest-assured\rest-assured-common\4.5.0\rest-assured-common-4.5.0.jar;C:\Users\SerVV\.m2\repository\io\rest-assured\xml-path\4.5.0\xml-path-4.5.0.jar;C:\Users\SerVV\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\SerVV\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\SerVV\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\SerVV\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar;C:\Users\SerVV\.m2\repository\io\qameta\allure\allure-junit4\2.24.0\allure-junit4-2.24.0.jar;C:\Users\SerVV\.m2\repository\io\qameta\allure\allure-java-commons\2.24.0\allure-java-commons-2.24.0.jar;C:\Users\SerVV\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\SerVV\.m2\repository\io\qameta\allure\allure-model\2.24.0\allure-model-2.24.0.jar;C:\Users\SerVV\.m2\repository\io\qameta\allure\allure-test-filter\2.24.0\allure-test-filter-2.24.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -34,7 +34,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\SerVV\AppData\Local\Temp\surefire7296309664198560763\surefirebooter573582507255134890.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\SerVV\AppData\Local\Temp\surefire680417785271598315\surefirebooter626860083784599135.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.20+8-LTS"/>
@@ -63,12 +63,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testCanMakeOrders" classname="ru.yandex.practicum.OrderTest" time="0.536">
+  <testcase name="testCanMakeOrders" classname="ru.yandex.practicum.OrderTest" time="0.549">
     <failure message="1 expectation failed.&#10;Expected status code &lt;200&gt; but was &lt;409&gt;.&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
 1 expectation failed.
 Expected status code <200> but was <409>.
 
-	at ru.yandex.practicum.OrderTest.testCanMakeOrders(OrderTest.java:40)
+	at ru.yandex.practicum.OrderTest.testCanMakeOrders(OrderTest.java:27)
 ]]></failure>
     <system-out><![CDATA[Request method:	POST
 Request URI:	https://qa-scooter.praktikum-services.ru/api/v1/orders
@@ -99,17 +99,17 @@ HTTP/1.1 201 Created
 Access-Control-Allow-Origin: *
 Content-Length: 16
 Content-Type: application/json; charset=utf-8
-Date: Wed, 25 Oct 2023 12:29:01 GMT
-ETag: W/"10-FGzldFtOk0e6eupYY9SOQ04BjEQ"
-Set-Cookie: _yasc=5KCDqbSG4G/PYFS67Ni9LIBCL31JquB1yOMqj9urp4CkuIswmS5fb2+WinDFhPkR; domain=.praktikum-services.ru; path=/; expires=Sat, 22 Oct 2033 12:29:01 GMT; secure
+Date: Fri, 27 Oct 2023 13:19:57 GMT
+ETag: W/"10-1aGGOB4h4L5foQKheA1Gekb9aBM"
+Set-Cookie: _yasc=2sb1YL1qYvRM7M2AX4FgdaCzOzIgGook/FRSz1I0Mzsv0uNKKzhaXTIn+yrWP1k/Dg==; domain=.praktikum-services.ru; path=/; expires=Mon, 24 Oct 2033 13:19:57 GMT; secure
 X-Powered-By: Express
-X-Request-Id: 1698236941643486-2835832385628804826
+X-Request-Id: 1698412797146550-7263716889771254995
 
 {
-    "track": 102899
+    "track": 139980
 }
 Request method:	PUT
-Request URI:	https://qa-scooter.praktikum-services.ru/api/v1/orders/finish/102899
+Request URI:	https://qa-scooter.praktikum-services.ru/api/v1/orders/finish/139980
 Proxy:			<none>
 Request params:	<none>
 Query params:	<none>
@@ -124,11 +124,11 @@ HTTP/1.1 409 Conflict
 Access-Control-Allow-Origin: *
 Content-Length: 76
 Content-Type: application/json; charset=utf-8
-Date: Wed, 25 Oct 2023 12:29:01 GMT
+Date: Fri, 27 Oct 2023 13:19:57 GMT
 ETag: W/"4c-PpITYxSj65P3fhwNSmDh8Mg68OA"
-Set-Cookie: _yasc=uWuQkUs5BtucnPrC48DEAkBZYg+o/wuQ/MreNxQZrGzU21JXfkDJhBq9abj+BxBe; domain=.praktikum-services.ru; path=/; expires=Sat, 22 Oct 2033 12:29:01 GMT; secure
+Set-Cookie: _yasc=5ZNsU1KcU/pMAFJhmh6+Z/dC6HD/Bq9K83RJflnYKKhhW96pYYBwA2tIMb5Zckt+lA==; domain=.praktikum-services.ru; path=/; expires=Mon, 24 Oct 2033 13:19:57 GMT; secure
 X-Powered-By: Express
-X-Request-Id: 1698236941913062-8608880170981942293
+X-Request-Id: 1698412797395714-11470057361174898803
 
 {
     "code": 409,
@@ -136,12 +136,12 @@ X-Request-Id: 1698236941913062-8608880170981942293
 }
 ]]></system-out>
   </testcase>
-  <testcase name="testGetOrders" classname="ru.yandex.practicum.OrderTest" time="17.433">
+  <testcase name="testGetOrders" classname="ru.yandex.practicum.OrderTest" time="15.923">
     <failure message="1 expectation failed.&#10;Expected status code &lt;200&gt; but was &lt;404&gt;.&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
 1 expectation failed.
 Expected status code <200> but was <404>.
 
-	at ru.yandex.practicum.OrderTest.testGetOrders(OrderTest.java:63)
+	at ru.yandex.practicum.OrderTest.testGetOrders(OrderTest.java:48)
 ]]></failure>
     <system-out><![CDATA[Request method:	POST
 Request URI:	https://qa-scooter.praktikum-services.ru/api/v1/orders
@@ -172,14 +172,14 @@ HTTP/1.1 201 Created
 Access-Control-Allow-Origin: *
 Content-Length: 16
 Content-Type: application/json; charset=utf-8
-Date: Wed, 25 Oct 2023 12:29:02 GMT
-ETag: W/"10-OCi0Y8O86Y0AosN6hm3pFpNtu2A"
-Set-Cookie: _yasc=oMoFb0d7+H49jb7BxkLU4UobLZaZRJgizjqAIB0u2vhpdeKxoES1QgfrZCx9KITt; domain=.praktikum-services.ru; path=/; expires=Sat, 22 Oct 2033 12:29:02 GMT; secure
+Date: Fri, 27 Oct 2023 13:19:57 GMT
+ETag: W/"10-RBl5NwDX5dA+L5BeBmMI2iX0jp8"
+Set-Cookie: _yasc=ZmF9mmlYO154DZdCdPX12HLmHOs4V0hBG7dk7PKQSHhwRaQY0wSRSJkgfRgmcw1I; domain=.praktikum-services.ru; path=/; expires=Mon, 24 Oct 2033 13:19:57 GMT; secure
 X-Powered-By: Express
-X-Request-Id: 1698236942176520-11090892554601703416
+X-Request-Id: 1698412797675999-12419893338759832310
 
 {
-    "track": 572862
+    "track": 423014
 }
 Request method:	GET
 Request URI:	https://qa-scooter.praktikum-services.ru/api/v1/orders
@@ -197,11 +197,11 @@ HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
 Content-Length: 26047
 Content-Type: application/json; charset=utf-8
-Date: Wed, 25 Oct 2023 12:29:19 GMT
-ETag: W/"65bf-eqraG0xFznfQOC86ZzAZ17il2oo"
-Set-Cookie: _yasc=Ftq4Bhe0511yaDYsTHF2K21mTrWmbw75CIqH+EV/6JP5DhtsUVYDOSIJ1DzXygeo; domain=.praktikum-services.ru; path=/; expires=Sat, 22 Oct 2033 12:29:02 GMT; secure
+Date: Fri, 27 Oct 2023 13:20:13 GMT
+ETag: W/"65bf-OUnu0O2AW6fJLC9EyNb949ieCyc"
+Set-Cookie: _yasc=MNuKHvJtqspIbC4qmVybu6WWGj4tt10XPd17Srv840toq1nhgNDBor4rE2h1DZ1D; domain=.praktikum-services.ru; path=/; expires=Mon, 24 Oct 2033 13:19:57 GMT; secure
 X-Powered-By: Express
-X-Request-Id: 1698236942439216-14834204601915362411
+X-Request-Id: 1698412797927065-8985170011947420839
 
 {
     "orders": [
@@ -767,7 +767,7 @@ X-Request-Id: 1698236942439216-14834204601915362411
     ],
     "pageInfo": {
         "page": 0,
-        "total": 175463,
+        "total": 175966,
         "limit": 30
     },
     "availableStations": [
@@ -1899,7 +1899,7 @@ X-Request-Id: 1698236942439216-14834204601915362411
     ]
 }
 Request method:	PUT
-Request URI:	https://qa-scooter.praktikum-services.ru/api/v1/orders/finish/572862
+Request URI:	https://qa-scooter.praktikum-services.ru/api/v1/orders/finish/423014
 Proxy:			<none>
 Request params:	<none>
 Query params:	<none>
@@ -1914,11 +1914,11 @@ HTTP/1.1 404 Not Found
 Access-Control-Allow-Origin: *
 Content-Length: 80
 Content-Type: application/json; charset=utf-8
-Date: Wed, 25 Oct 2023 12:29:19 GMT
+Date: Fri, 27 Oct 2023 13:20:13 GMT
 ETag: W/"50-DjxVVxHrkH2M/uOtbYwsTzqBgl0"
-Set-Cookie: _yasc=8X+/9mrbhzX4Tu/Uo7mUdPkHG9V1cQqXxNyPT0UYox0kX29TDzYOUTdMAd1In0mP; domain=.praktikum-services.ru; path=/; expires=Sat, 22 Oct 2033 12:29:19 GMT; secure
+Set-Cookie: _yasc=zNnS77ttrWOTilyDvJb2Ro2N+KLi3+VtwV6WZPPd9yzT6iOEW8zoz9TqjWBCroWn; domain=.praktikum-services.ru; path=/; expires=Mon, 24 Oct 2033 13:20:13 GMT; secure
 X-Powered-By: Express
-X-Request-Id: 1698236959368629-7519479161244972461
+X-Request-Id: 1698412813333258-2387520057528833674
 
 {
     "code": 404,
