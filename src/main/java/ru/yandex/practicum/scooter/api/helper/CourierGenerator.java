@@ -38,11 +38,11 @@ public class CourierGenerator {
         return new CreateCourierRequest(login, firstName);
     }
 
-    public static CreateOrderRequest getOrder() {
+    public static CreateOrderRequest getOrder(String orderBlack, String orderGrey, String orderBlackAndGrey, String noOrder) {
         String firstName = "Naruto";
         String lastName = "Uchiha";
         String address = "Konoha, 142 apt.";
-        List<String> color = asList("BLACK");
+        List color = asList(orderBlack);
         String phone = "+7 800 355 35 35";
         String comment = "Saske, come back to Konoha";
         int rentTime = 5;
