@@ -8,6 +8,8 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 
 public class BaseApiClient {
+    public final static String BASE_URL = "https://qa-scooter.praktikum-services.ru";
+
     public RequestSpecification getPostSpec() {
         return given()
                 .filter(new ResponseLoggingFilter())
