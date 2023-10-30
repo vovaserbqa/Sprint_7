@@ -1,7 +1,7 @@
 package ru.yandex.practicum;
 
 import org.junit.Before;
-import ru.yandex.practicum.scooter.api.client.CourierApiClient;
+import ru.yandex.practicum.scooter.api.client.CourierApi;
 import ru.yandex.practicum.scooter.api.model.CreateCourierRequest;
 import ru.yandex.practicum.scooter.api.model.LoginCourierRequest;
 
@@ -16,12 +16,12 @@ public class BaseCourier {
     protected LoginCourierRequest loginCourierRequest;
     protected LoginCourierRequest loginWithoutPassword;
     protected LoginCourierRequest loginWithoutLogin;
-    protected CourierApiClient courierApiClient;
+    protected CourierApi courierApiClient;
 
 
     @Before
     public void setUp() {
-        courierApiClient = new CourierApiClient();
+        courierApiClient = new CourierApi();
 
         createCourierRequest = getRandomCourier();
         registeringCourierWithoutLogin = getRegisteringCourierWithoutLogin();
@@ -31,6 +31,5 @@ public class BaseCourier {
         loginCourierRequest = new LoginCourierRequest(createCourierRequest.getLogin(), createCourierRequest.getPassword());
         loginWithoutPassword = new LoginCourierRequest(createCourierRequest.getLogin());
         loginWithoutLogin = new LoginCourierRequest(createCourierRequest.getPassword());
-
     }
 }

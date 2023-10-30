@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: ru.yandex.practicum.CourierTest
+Test set: ru.yandex.practicum.CreateOrderTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 129.971 s - in ru.yandex.practicum.CourierTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.122 s - in ru.yandex.practicum.CreateOrderTest

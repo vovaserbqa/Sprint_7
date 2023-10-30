@@ -1,4 +1,5 @@
 ru\yandex\practicum\BaseCourier.class
 ru\yandex\practicum\CourierTest.class
-ru\yandex\practicum\OrderTest.class
 ru\yandex\practicum\BaseOrder.class
+ru\yandex\practicum\GetOrdersTest.class
+ru\yandex\practicum\CreateOrderTest.class

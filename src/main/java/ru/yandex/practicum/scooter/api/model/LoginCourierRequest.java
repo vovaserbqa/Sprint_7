@@ -13,12 +13,4 @@ public class LoginCourierRequest {
     public LoginCourierRequest(String login) {
         this.login = login;
     }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
 }
