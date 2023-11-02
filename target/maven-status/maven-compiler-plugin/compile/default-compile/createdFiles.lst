@@ -1,0 +1,8 @@
+ru\yandex\practicum\scooter\api\client\CourierApi.class
+ru\yandex\practicum\scooter\api\helper\CourierGenerator.class
+ru\yandex\practicum\scooter\api\model\CreateCourierRequest.class
+ru\yandex\practicum\scooter\api\model\CreateOrderRequest.class
+ru\yandex\practicum\scooter\api\client\OrderApi.class
+ru\yandex\practicum\scooter\api\helper\OrderGenerator.class
+ru\yandex\practicum\scooter\api\model\LoginCourierRequest.class
+ru\yandex\practicum\scooter\api\client\BaseApi.class
